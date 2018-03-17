@@ -49,10 +49,15 @@ public class ChartRoomServer {
 
     private void operation(SelectionKey key) throws IOException {
         if (key.isAcceptable()) {
-            SocketChannel channel = (SocketChannel) key.channel();
-            //连接进聊天室了
-            System.out.println(channel.getRemoteAddress() + "进入了聊天室");
-            channel.register(selector, SelectionKey.OP_READ);
+            ServerSocketChannel channel = (ServerSocketChannel) key.channel();
+
+            SocketChannel accept = channel.accept();
+            accept.configureBlocking(false);
+            //提示连接进聊天室了
+            System.out.println(accept.getRemoteAddress() + "进入了聊天室");
+            //TODO 返回客户端信息，提示已经进入聊天室
+            feedback(accept,"恭喜您进入了聊天室！！");
+            accept.register(selector, SelectionKey.OP_READ);
             key.interestOps(SelectionKey.OP_ACCEPT);
         }
         if (key.isReadable()) {
@@ -74,13 +79,15 @@ public class ChartRoomServer {
     }
 
     private void feedback(SocketChannel channel, String data) {
-        byte[] bytes = data.getBytes();
         ByteBuffer buffer = ByteBuffer.allocate(data.length());
-        buffer.put(bytes);
+//        byte[] bytes = data.getBytes();
+//        buffer.put(bytes);
+//        buffer.flip();
+        ByteBuffer wrap = buffer.wrap(data.getBytes());
 
-        buffer.flip();
         try {
-            channel.write(buffer);
+            if (wrap != null) channel.write(buffer);
+            else channel.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

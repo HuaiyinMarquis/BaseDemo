@@ -78,6 +78,7 @@ public class Client {
             }
             System.out.println(sb.toString());
             key.interestOps(SelectionKey.OP_READ);
+
         }
     }
 
