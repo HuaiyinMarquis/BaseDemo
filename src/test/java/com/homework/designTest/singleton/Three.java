@@ -1,6 +1,7 @@
 package com.homework.designTest.singleton;
 
 /**
+ * 懒汉三：Double Check Lock 因为指令重排，有并发问题
  * Created by ChenMP on 2018/3/17.
  */
 public class Three {
