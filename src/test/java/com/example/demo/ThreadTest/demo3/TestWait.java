@@ -35,5 +35,4 @@ public class TestWait {
         }
         countDownLatch.countDown();
     }
-
 }

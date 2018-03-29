@@ -9,9 +9,12 @@ public class TestPrototype {
         OtherInApple otherInApple = new OtherInApple("other");
         Apple apple = new Apple("red",8, someThing,otherInApple);
 
-        Apple clone = (Apple) apple.clone();
-        System.out.println(clone);
+        Apple clone = (Apple) apple.clone(); //浅克隆
+        System.out.println(clone);  //数据一致
+        System.out.println(apple == clone);// 内存地址不一致
 
+        clone = apple.deepClone();
+        System.out.println(clone);
         System.out.println(apple == clone);
     }
 }

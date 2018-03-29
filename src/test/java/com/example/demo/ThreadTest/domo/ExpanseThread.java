@@ -1,4 +1,4 @@
-package com.example.demo.ThreadTest.domo1;
+package com.example.demo.ThreadTest.domo;
 
 import java.math.BigDecimal;
 import java.util.Random;

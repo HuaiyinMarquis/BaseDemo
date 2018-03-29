@@ -1,9 +1,11 @@
 package com.homework.designTest.prototype;
 
+import java.io.Serializable;
+
 /**
  * Created by ChenMP on 2018/3/23.
  */
-public class OtherInApple {
+public class OtherInApple implements Serializable {
     private String str;
 
     public OtherInApple(String str) {

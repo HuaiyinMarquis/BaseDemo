@@ -1,6 +1,7 @@
 package com.example.demo.ClassloaderTest;
 
 /**
+ * 获取类加载器及其父加载器
  * Created by ChenMP on 2018/3/12.
  */
 public class GetClassloader {
