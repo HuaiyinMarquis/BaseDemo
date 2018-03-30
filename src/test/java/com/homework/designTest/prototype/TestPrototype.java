@@ -10,11 +10,12 @@ public class TestPrototype {
         Apple apple = new Apple("red",8, someThing,otherInApple);
 
         Apple clone = (Apple) apple.clone(); //浅克隆
-        System.out.println(clone);  //数据一致
         System.out.println(apple == clone);// 内存地址不一致
+        System.out.println(apple.getOtherInApple() == clone.getOtherInApple());
 
-        clone = apple.deepClone();
-        System.out.println(clone);
+        clone = apple.deepClone(); //深克隆
         System.out.println(apple == clone);
+        System.out.println(apple.getOtherInApple() == clone.getOtherInApple());
+
     }
 }
