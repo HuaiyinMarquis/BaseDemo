@@ -5,8 +5,8 @@ package com.homework.designTest.singleton;
  */
 public class TestSingleton {
     public static void main(String[] args) {
-        SingletonObject instance = Six.OBJECTDATE.getInstance();
-        SingletonObject instance2 = Six.OBJECTDATE.getInstance();
+        SingletonObject instance = Six_Enum.OBJECTDATE.getInstance();
+        SingletonObject instance2 = Six_Enum.OBJECTDATE.getInstance();
         System.out.println(instance == instance2);
     }
 }
