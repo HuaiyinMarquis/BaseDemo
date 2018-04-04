@@ -10,7 +10,7 @@ public class CheckoutClassBuilder_Two {
     public static void main(String[] args) {
         /**
          * 重叠构造器模式的缺点：当有许多参数的时候，客户端代码会很难编写，并且较难阅读。
-         *      会导致一些微妙的错误，比如不小心颠倒了两个参数
+         *      会导致一些微妙的错误，比如不小心颠倒了两个参数 example: TODO
          */
         new Vector<>();
         /**
@@ -36,6 +36,30 @@ class Dog {
     private final String color;
     private final String character;
     private final String favorite;
+
+//    重叠构造器模式示例
+//    public Dog() {
+//        this( "阿黄", "yellow", "haose", "mugou");
+//    }
+//
+//    public Dog(String name) {
+//        this( name, "yellow", "haose", "mugou");
+//    }
+//
+//    public Dog(String name, String color) {
+//        this( name, color, "haose", "mugou");
+//    }
+//
+//    public Dog(String name, String color, String character) {
+//        this( name, color, character, "mugou");
+//    }
+//
+//    public Dog(String name, String color, String character, String favorite) {
+//        this.name = name;
+//        this.color = color;
+//        this.character = character;
+//        this.favorite = favorite;
+//    }
 
     private Dog(Builder builder) {
         this.name = builder.name;

@@ -18,7 +18,7 @@ public class CheckoutStaticFactoryMethod_One {
         Apple.getAppleUseColorFrom("Read","Tokyo");
         /**
          *  2、第二大优势：不必每次调用都创建一个新的对象
-         *      因为创建对象的代价很高，一些重复的对象是不必要创建的，我们可以将构建好的实例缓存起来。
+         *      因为创建对象的代价很高，一些重复的对象是不必要创建的，我们可以将构建好的实例缓存起来。example：
          */
         Boolean.valueOf(true);
         /**
