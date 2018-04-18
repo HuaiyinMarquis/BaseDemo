@@ -6,6 +6,13 @@ package com.example.demo.JavaVersionTest.Lambda_Test;
 public class Person {
     private String name;
     private int weight;
+    private int age;
+
+    public Person(String name, int weight, int age) {
+        this.name = name;
+        this.weight = weight;
+        this.age = age;
+    }
 
     public String getName() {
         return name;
@@ -23,8 +30,20 @@ public class Person {
         this.weight = weight;
     }
 
-    public Person(String name, int weight) {
-        this.name = name;
-        this.weight = weight;
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                ", age=" + age +
+                '}';
     }
 }
