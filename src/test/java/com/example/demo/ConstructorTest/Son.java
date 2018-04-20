@@ -9,7 +9,21 @@ public class Son extends Father {
         super(name);
     }
 
+    public Son() {
+        System.out.println("Son构造方法");
+    }
+
+    {
+        System.out.println("Son对象方法块");
+    }
+
+    static{
+        System.out.println("Son 静态方法块");
+    }
+
     public static void main(String[] args) {
+        new Son();
+
         StringBuffer sb = new StringBuffer();
         sb.append("a").append("b").append("c");
         System.out.println(new String(sb));
