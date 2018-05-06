@@ -15,6 +15,8 @@ public class CheckoutNotCreateNonRequiredObject_Four {
          */
         String strObj = new String("Test string"); // 1.
         String str = "Test string"; // 2.
+        strObj.intern(); //把String保存到常量池
+
         /**
          * 下面是重用对象的一个例子：
          */
@@ -80,4 +82,6 @@ class WomanSingleton {
         calendar.set(Calendar.SECOND, 0);//秒
         compareDate = calendar.getTime();
     }
+
+
 }

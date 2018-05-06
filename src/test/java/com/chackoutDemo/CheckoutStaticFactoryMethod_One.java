@@ -20,6 +20,7 @@ public class CheckoutStaticFactoryMethod_One {
          *  2、第二大优势：不必每次调用都创建一个新的对象
          *      因为创建对象的代价很高，一些重复的对象是不必要创建的，我们可以将构建好的实例缓存起来。example：
          */
+        new Boolean("true");
         Boolean.valueOf(true);
         /**
          *  3、第三大优势：可以返回原返回类型的任何子类型对象，这样我们就有了更大的灵活性
@@ -36,7 +37,7 @@ public class CheckoutStaticFactoryMethod_One {
         Executors.newFixedThreadPool(4);
         /**
          * 主要缺点：
-         *  1、类如果不包含public和protected的构造方法，就不能被子类化（第三大优势）
+         *  1、类如果不包含public和protected的构造方法，就不能被子类化（第三大优势）?
          *  2、与其他静态方法实际上没有任何区别
          */
 
