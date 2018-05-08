@@ -1,4 +1,4 @@
-package com.soundCode.Mybatis;
+package com.example.demo.SqlTest;
 
 import java.sql.*;
 

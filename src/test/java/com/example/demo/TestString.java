@@ -17,4 +17,9 @@ public class TestString {
         String str4 = new StringBuilder("NN").append( "GX" ).toString();
         System.out.println(str4.intern()==str4);
     }
+
+    @Test
+    public void testN() {
+        System.out.println("你\n好");
+    }
 }

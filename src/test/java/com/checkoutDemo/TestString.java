@@ -1,4 +1,4 @@
-package com.chackoutDemo;
+package com.checkoutDemo;
 
 /**
  * Created by ChenMP on 2018/4/6.

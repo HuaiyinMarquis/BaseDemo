@@ -1,4 +1,4 @@
-package com.chackoutDemo;
+package com.checkoutDemo;
 
 import java.util.EnumSet;
 import java.util.concurrent.Executors;

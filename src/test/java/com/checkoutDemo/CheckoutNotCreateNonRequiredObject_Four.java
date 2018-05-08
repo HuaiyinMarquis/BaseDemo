@@ -1,4 +1,4 @@
-package com.chackoutDemo;
+package com.checkoutDemo;
 
 import java.util.Calendar;
 import java.util.Date;
