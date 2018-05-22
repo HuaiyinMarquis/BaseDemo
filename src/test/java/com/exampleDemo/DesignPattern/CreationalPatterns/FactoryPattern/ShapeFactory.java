@@ -1,12 +1,9 @@
 package com.exampleDemo.DesignPattern.CreationalPatterns.FactoryPattern;
 
-import com.example.demo.DesignPattern.CreationalPatterns.FactoryPattern.bean.Circle;
-import com.example.demo.DesignPattern.CreationalPatterns.FactoryPattern.bean.Rectangle;
-import com.example.demo.DesignPattern.CreationalPatterns.FactoryPattern.bean.Shape;
-import com.example.demo.DesignPattern.CreationalPatterns.FactoryPattern.bean.Square;
 import com.exampleDemo.DesignPattern.CreationalPatterns.FactoryPattern.bean.Circle;
 import com.exampleDemo.DesignPattern.CreationalPatterns.FactoryPattern.bean.Rectangle;
 import com.exampleDemo.DesignPattern.CreationalPatterns.FactoryPattern.bean.Shape;
+import com.exampleDemo.DesignPattern.CreationalPatterns.FactoryPattern.bean.Square;
 import org.springframework.util.StringUtils;
 
 /**

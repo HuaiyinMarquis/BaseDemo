@@ -1,7 +1,5 @@
 package com.exampleDemo.DesignPattern.CreationalPatterns.FactoryPattern;
 
-import com.example.demo.DesignPattern.CreationalPatterns.FactoryPattern.ShapeFactory;
-import com.example.demo.DesignPattern.CreationalPatterns.FactoryPattern.bean.Shape;
 import com.exampleDemo.DesignPattern.CreationalPatterns.FactoryPattern.bean.Shape;
 
 /**

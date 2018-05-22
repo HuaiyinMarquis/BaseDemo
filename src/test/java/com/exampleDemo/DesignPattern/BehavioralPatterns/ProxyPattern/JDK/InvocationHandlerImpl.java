@@ -1,6 +1,5 @@
 package com.exampleDemo.DesignPattern.BehavioralPatterns.ProxyPattern.JDK;
 
-import com.example.demo.DesignPattern.BehavioralPatterns.ProxyPattern.JDK.pojo.Person;
 import com.exampleDemo.DesignPattern.BehavioralPatterns.ProxyPattern.JDK.pojo.Person;
 
 import java.lang.reflect.InvocationHandler;

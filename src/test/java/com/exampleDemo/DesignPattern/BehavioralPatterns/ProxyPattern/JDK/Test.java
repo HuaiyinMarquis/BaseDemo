@@ -1,7 +1,5 @@
 package com.exampleDemo.DesignPattern.BehavioralPatterns.ProxyPattern.JDK;
 
-import com.example.demo.DesignPattern.BehavioralPatterns.ProxyPattern.JDK.pojo.Chinese;
-import com.example.demo.DesignPattern.BehavioralPatterns.ProxyPattern.JDK.pojo.Person;
 import com.exampleDemo.DesignPattern.BehavioralPatterns.ProxyPattern.JDK.pojo.Chinese;
 import com.exampleDemo.DesignPattern.BehavioralPatterns.ProxyPattern.JDK.pojo.Person;
 import sun.misc.ProxyGenerator;

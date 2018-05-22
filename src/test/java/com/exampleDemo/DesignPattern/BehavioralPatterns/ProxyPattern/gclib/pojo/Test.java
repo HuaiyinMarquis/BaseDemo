@@ -1,6 +1,5 @@
 package com.exampleDemo.DesignPattern.BehavioralPatterns.ProxyPattern.gclib.pojo;
 
-import com.example.demo.DesignPattern.BehavioralPatterns.ProxyPattern.gclib.CarProxy;
 import com.exampleDemo.DesignPattern.BehavioralPatterns.ProxyPattern.gclib.CarProxy;
 
 /**

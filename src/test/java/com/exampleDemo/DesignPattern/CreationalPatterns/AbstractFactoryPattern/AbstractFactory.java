@@ -1,8 +1,7 @@
 package com.exampleDemo.DesignPattern.CreationalPatterns.AbstractFactoryPattern;
 
-import com.example.demo.DesignPattern.CreationalPatterns.AbstractFactoryPattern.bean.Color;
-import com.example.demo.DesignPattern.CreationalPatterns.FactoryPattern.bean.Shape;
 import com.exampleDemo.DesignPattern.CreationalPatterns.AbstractFactoryPattern.bean.Color;
+import com.exampleDemo.DesignPattern.CreationalPatterns.FactoryPattern.bean.Shape;
 
 /**
  * Created by ChenMP on 2017/11/8.
