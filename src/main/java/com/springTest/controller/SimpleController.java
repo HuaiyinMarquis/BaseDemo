@@ -25,12 +25,5 @@ public class SimpleController {
         return "success";
     }
 
-    @RequestMapping("/thymeleafDemo")
-    public String thymeleafDemo(Model model) {
-        Map<String, Object> map = new HashMap<>();
-        map.put("name","张三");
-        map.put("age",18);
-        model.addAllAttributes(map);
-        return "thymeleafDemo";
-    }
+
 }
