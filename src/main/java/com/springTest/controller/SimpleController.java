@@ -4,9 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,5 +25,16 @@ public class SimpleController {
         return "success";
     }
 
+    @PostMapping("/user/login")
+    public String login(@RequestParam("username") String username,
+                        @RequestParam("password") String password,
+                        Map<String, String> map, HttpSession session) {
+        if (! "admin".equals(password)) {
+            map.put("msg", "账号或者密码输入不正确，请重新输入");
+            return "/login";
+        }
+        session.setAttribute("loginUser",username);
+        return "redirect:/home";
+    }
 
 }
