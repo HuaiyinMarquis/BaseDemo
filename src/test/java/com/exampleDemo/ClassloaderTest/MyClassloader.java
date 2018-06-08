@@ -3,6 +3,7 @@ package com.exampleDemo.ClassloaderTest;
 import java.io.*;
 
 /**
+ * 实现自定义的类加载器
  * Created by ChenMP on 2018/3/12.
  */
 public class MyClassloader extends ClassLoader {

@@ -22,4 +22,10 @@ public class TestString {
     public void testN() {
         System.out.println("你\n好");
     }
+
+    @Test
+    public void testSub() {
+        String a = "0123456789";
+        System.out.println(a.substring(1,6));
+    }
 }

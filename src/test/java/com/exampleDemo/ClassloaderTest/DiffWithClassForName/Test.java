@@ -7,15 +7,23 @@ package com.exampleDemo.ClassloaderTest.DiffWithClassForName;
  */
 public class Test {
     public static void main(String[] args) throws ClassNotFoundException {
-//        testClassloader();
-        testClassForName();
+        testClassloader();
+//        testClassForName();
     }
 
     private static void testClassForName() throws ClassNotFoundException {
-        Class<?> clazz = Class.forName("com.example.demo.ClassloaderTest.DiffWithClassForName.JavaBean");
+        Class<?> clazz = Class.forName("com.exampleDemo.ClassloaderTest.DiffWithClassForName.JavaBean");
     }
 
     private static void testClassloader() throws ClassNotFoundException {
-        Class<?> clazz = ClassLoader.getSystemClassLoader().loadClass("com.example.demo.ClassloaderTest.DiffWithClassForName.JavaBean");
+//        Class<?> clazz = ClassLoader.getSystemClassLoader().loadClass("com.exampleDemo.ClassloaderTest.DiffWithClassForName.JavaBean");
+        Class<?> clazz = Test.class.getClassLoader().loadClass("com.exampleDemo.ClassloaderTest.DiffWithClassForName.JavaBean");
+        System.out.println("--------------------------------------------------------------");
+        JavaBean javaBean = null;
+        try {
+            javaBean= (JavaBean) clazz.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

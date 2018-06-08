@@ -10,7 +10,7 @@ import java.util.Locale;
 /**
  * 定义我们自己的LocaleResolver用来替代spring Boot默认定义的
  *  org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration.WebMvcAutoConfigurationAdapter#localeResolver()
- *  用于方便个性化识别区域信息
+ *  用于方便个性化识别区域信息（国际化）
  */
 public class MyLocaleResolver implements LocaleResolver {
     @Override
