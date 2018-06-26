@@ -33,6 +33,7 @@ public class SimpleController {
             map.put("msg", "账号或者密码输入不正确，请重新输入");
             return "/login";
         }
+        String b2c = (String) session.getAttribute("b2c");
         session.setAttribute("loginUser",username);
         return "redirect:/home";
     }

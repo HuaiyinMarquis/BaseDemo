@@ -5,6 +5,7 @@ import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 import com.springTest.component.LoginHandlerInterceptor;
 import com.springTest.component.MyLocaleResolver;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -22,6 +23,7 @@ import java.util.Map;
 
 //使用WebMvcConfigurerAdapter扩展SpringMVC的功能
 @Configuration
+@MapperScan("com.springTest.mapper")//扫描所有Mapper接口
 public class MyMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
