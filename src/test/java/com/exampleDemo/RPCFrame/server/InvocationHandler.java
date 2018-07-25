@@ -9,17 +9,18 @@ import java.io.ObjectOutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.Socket;
+import java.util.Map;
 
 /**
  * 执行类
  */
 public class InvocationHandler implements Runnable {
     private final Socket socket;
-    private final Object service;
+    Map<String,Object> handleMap;
 
-    public InvocationHandler(Socket socket,Object service) {
+    public InvocationHandler(Socket socket,Map<String,Object> handleMap) {
         this.socket = socket;
-        this.service = service;
+        this.handleMap = handleMap;
     }
 
     @Override
@@ -65,6 +66,8 @@ public class InvocationHandler implements Runnable {
         for (int i=0;i<args.length;i++){
             tyeps[i] = args[i].getClass();
         }
+
+        Object service = handleMap.get(request.getClassName());
         Method method = service.getClass().getMethod(request.getMethodName(),tyeps);
         return method.invoke(service,args);
     }
