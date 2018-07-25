@@ -1,17 +1,16 @@
 package com.exampleDemo.RPCFrame.client;
 
+import com.exampleDemo.RPCFrame.IServiceDiscover;
 import com.exampleDemo.RPCFrame.RPCRequest;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 public class ClientInvocationHandler implements InvocationHandler {
-    private String ip;
-    private int port;
+    private IServiceDiscover serviceDiscover;
 
-    public ClientInvocationHandler(String ip, int port) {
-        this.ip = ip;
-        this.port = port;
+    public ClientInvocationHandler(IServiceDiscover serviceDiscover) {
+        this.serviceDiscover = serviceDiscover;
     }
 
     @Override
@@ -20,6 +19,8 @@ public class ClientInvocationHandler implements InvocationHandler {
         request.setClassName(method.getDeclaringClass().getName());
         request.setMethodName(method.getName());
         request.setParameters(args);
-        return new TCPTransport().newSocket(ip,port).send(request);
+
+        String[] serviceAddrss = serviceDiscover.discover(request.getClassName()).split(":");
+        return new TCPTransport().newSocket(serviceAddrss[0],Integer.parseInt(serviceAddrss[1])).send(request);
     }
 }

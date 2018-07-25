@@ -2,6 +2,8 @@ package com.exampleDemo.RPCFrame.client;
 
 import com.exampleDemo.RPCFrame.IServiceDiscover;
 import com.exampleDemo.RPCFrame.ZKConfig;
+import com.exampleDemo.RPCFrame.loadbalance.LoadBalance;
+import com.exampleDemo.RPCFrame.loadbalance.RandomLoadBalance;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.recipes.cache.PathChildrenCache;
@@ -33,7 +35,11 @@ public class ZKServiceDiscover implements IServiceDiscover {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        //动态发现服务节点的变化
+        registerWatcher(servicePath);
+
+        LoadBalance loadBalance = new RandomLoadBalance();
+        return loadBalance.selectHost(repos);
     }
 
     private void registerWatcher(String servicePath){
@@ -46,5 +52,10 @@ public class ZKServiceDiscover implements IServiceDiscover {
             }
         };
         childrenCache.getListenable().addListener(childrenCacheListener);
+        try {
+            childrenCache.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
