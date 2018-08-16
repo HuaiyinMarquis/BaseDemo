@@ -47,6 +47,7 @@ public class TestStreamAPI1 {
 			   .map(String::toUpperCase);
 		
 		stream.forEach(System.out::println);
+        System.out.println("-------------------------------------------");
 		
 		Stream<Stream<Character>> stream2 = strList.stream()
 			   .map(TestStreamAPI1::filterCharacter);
