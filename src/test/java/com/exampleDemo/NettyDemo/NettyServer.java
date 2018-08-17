@@ -24,13 +24,15 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  *      当一个应用变得复杂时，你很有可能为pipeline增加更多的处理器，最终将这个匿名类提取到顶级类中。
  *(5)、您还可以设置特定于通道实现的参数。
  *      请参考ChannelOption的文档说明和特定的ChannelConfig实现获得关于受支持的ChannelOptions的概述。
- *(6)、
+ *(6)、 option()用于接收进来的连接的NioServerSocketChannel
+ *      childOption()用于被父ServerChannel所接受的Channels
+ *(7)、绑定端口并启动服务器
  *
  */
-public class DiscardServer {
+public class NettyServer {
     private int port;
 
-    public DiscardServer(int port) {
+    public NettyServer(int port) {
         this.port = port;
     }
 
@@ -44,7 +46,8 @@ public class DiscardServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() { // (4)配置
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new DiscardServerHandler());
+//                            ch.pipeline().addLast(new DiscardServerHandler());
+                            ch.pipeline().addLast(new TimeEncoder(),new TimeServerHandler());
                         }
                     })
                     .option(ChannelOption.SO_BACKLOG, 128)          // (5)
@@ -70,6 +73,6 @@ public class DiscardServer {
         } else {
             port = 8080;
         }
-        new DiscardServer(port).run();
+        new NettyServer(port).run();
     }
 }
