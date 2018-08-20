@@ -55,10 +55,10 @@ public class TestLambda3 {
 	//Function<T, R> 函数型接口：
 	@Test
 	public void test3(){
-		String newStr = strHandler("\t\t\t 我大尚硅谷威武   ", (str) -> str.trim());
+		String newStr = strHandler("\t\t\t 威武   ", (str) -> str.trim());
 		System.out.println(newStr);
 		
-		String subStr = strHandler("我大尚硅谷威武", (str) -> str.substring(2, 5));
+		String subStr = strHandler("12345威武", (str) -> str.substring(2, 5));
 		System.out.println(subStr);
 	}
 	
@@ -92,7 +92,7 @@ public class TestLambda3 {
 	//Consumer<T> 消费型接口 :
 	@Test
 	public void test1(){
-		happy(10000, (m) -> System.out.println("你们刚哥喜欢大宝剑，每次消费：" + m + "元"));
+		happy(10000, (m) -> System.out.println("刚哥喜欢大宝剑，每次消费：" + m + "元"));
 	} 
 	
 	public void happy(double money, Consumer<Double> con){

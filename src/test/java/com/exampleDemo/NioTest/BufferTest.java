@@ -20,7 +20,7 @@ public class BufferTest {
         System.out.println(new String(read));
     }
 
-    private static String getStr() {
+    public static String getStr() {
         return  "public class NioClient {\n" +
                 "    // 创建一个套接字通道，注意这里必须使用无参形式\n" +
                 "    private Selector selector = null;\n" +
