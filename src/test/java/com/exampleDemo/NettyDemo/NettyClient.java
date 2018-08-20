@@ -7,6 +7,9 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.Delimiters;
+import io.netty.handler.codec.string.StringDecoder;
 import io.netty.util.AttributeKey;
 import io.netty.util.CharsetUtil;
 
@@ -37,6 +40,7 @@ public class NettyClient {
         b.handler(new ChannelInitializer<SocketChannel>() {
             @Override
             public void initChannel(SocketChannel ch) throws Exception {
+
                 ch.pipeline().addLast(new TimeClientHandler());
 //                    ch.pipeline().addLast(new TimeDecoder(), new TimeClientHandler());
             }
@@ -56,22 +60,26 @@ public class NettyClient {
             // Wait until the connection is closed.
             f.channel().closeFuture().sync();
 
-            return f.channel().attr(AttributeKey.valueOf(NettyClient.ATTRIBUTE_KEY));
+            return f.channel().attr(AttributeKey.valueOf(NettyClient.ATTRIBUTE_KEY)).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-//            workerGroup.shutdownGracefully();
+            workerGroup.shutdownGracefully();
         }
         return null;
     }
 
     public static void main(String[] args) {
-        for (int i=1; i<=100; i++) {
-            long start = System.currentTimeMillis();
-            Object result = NettyClient.connect("你好，服务器");
-            System.out.println(result);
-            long end = System.currentTimeMillis();
-            System.out.println("第"+i+"次发送请求耗时：" + (end-start) + "MS");
-        }
+
+        Object result = NettyClient.connect("你好，服务器");
+        System.out.println(result);
+        workerGroup.shutdownGracefully();
+//        for (int i=1; i<=100; i++) {
+//            long start = System.currentTimeMillis();
+//            Object result = NettyClient.connect("你好，服务器");
+//            System.out.println(result);
+//            long end = System.currentTimeMillis();
+//            System.out.println("第"+i+"次发送请求耗时：" + (end-start) + "MS");
+//        }
     }
 }

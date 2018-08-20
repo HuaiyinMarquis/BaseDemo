@@ -70,15 +70,15 @@ public class TimeClientHandler extends ChannelInboundHandlerAdapter {
         }
     }
 
-    @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
-/*----------------------------不靠谱的传输数据的方式----------------------------------*/
+//    @Override
+//    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+///*----------------------------不靠谱的传输数据的方式----------------------------------*/
 //        TimeUnit.SECONDS.sleep(1); // 坑
 //        Object request = ctx.channel().attr(AttributeKey.valueOf(NettyClient.ATTRIBUTE_KEY)).get();
 ////        ctx.writeAndFlush(request); 如果使用这种方式的话，客户端会阻塞，且服务端也接收不到消息
 //        ByteBuf byteBuf = ctx.alloc().buffer().writeBytes(request.toString().getBytes(CharsetUtil.UTF_8));
 //        ctx.writeAndFlush(byteBuf);
-    }
+//    }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
