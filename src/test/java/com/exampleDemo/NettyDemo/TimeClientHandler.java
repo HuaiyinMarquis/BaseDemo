@@ -2,10 +2,13 @@ package com.exampleDemo.NettyDemo;
 
 import com.exampleDemo.NettyDemo.pojo.UnixTime;
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.*;
+import io.netty.util.AttributeKey;
+import io.netty.util.CharsetUtil;
+import io.netty.util.ReferenceCountUtil;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  *(1)、在TCP/IP协议中，Netty从相同层级发送封装的ByteBuf获取数据
@@ -53,9 +56,28 @@ public class TimeClientHandler extends ChannelInboundHandlerAdapter {
 //            ctx.close();
 //        }
 /*----------------------------Speaking in POJO instead of ByteBuf----------------------------------*/
-        UnixTime m = (UnixTime) msg;
-        System.out.println(m);
-        ctx.close();
+//        UnixTime m = (UnixTime) msg;
+//        System.out.println(m);
+//        ctx.channel().attr(AttributeKey.valueOf(NettyClient.ATTRIBUTE_KEY)).set(m);
+//        ctx.close();
+
+        ByteBuf m = (ByteBuf) msg;
+        try {
+            ctx.channel().attr(AttributeKey.valueOf(NettyClient.ATTRIBUTE_KEY)).set(m.toString(CharsetUtil.UTF_8));
+            ctx.close();
+        } finally {
+            ReferenceCountUtil.release(msg);
+        }
+    }
+
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+/*----------------------------不靠谱的传输数据的方式----------------------------------*/
+//        TimeUnit.SECONDS.sleep(1); // 坑
+//        Object request = ctx.channel().attr(AttributeKey.valueOf(NettyClient.ATTRIBUTE_KEY)).get();
+////        ctx.writeAndFlush(request); 如果使用这种方式的话，客户端会阻塞，且服务端也接收不到消息
+//        ByteBuf byteBuf = ctx.alloc().buffer().writeBytes(request.toString().getBytes(CharsetUtil.UTF_8));
+//        ctx.writeAndFlush(byteBuf);
     }
 
     @Override

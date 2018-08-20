@@ -6,9 +6,11 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.util.CharsetUtil;
+import io.netty.util.ReferenceCountUtil;
 
 /**
- *(1)、入同之前解释的，channelActive()方法在一个连接建立好了且准备产生流量的时候被调用。
+ *(1)、如同之前解释的，channelActive()方法在一个连接建立好了且准备产生流量的时候被调用。
  *      我们写一个32位的整数表示在这个方法内当前的世界。
  *(2)、要发送一个新的消息，我们需要分配一个新的缓冲区用来包含消息。我们将要写一个32位的整数，因此我们需要一个ByteBuf用来包含至少四个字节
  *      调用ChannelHandlerContext.alloc()获取当前的ByteBufAllocator来分配一个新的buffer

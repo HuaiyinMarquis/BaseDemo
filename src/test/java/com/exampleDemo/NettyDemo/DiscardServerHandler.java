@@ -35,20 +35,22 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter { // (1)
         // Discard the received data silently.
 //        ((ByteBuf) msg).release(); // (3) 在这个例子中适用
 /*--------------------------Looking into the Received Data------------------------------------*/
-//        ByteBuf in = (ByteBuf) msg;
-//        try {
-//            // Do something with msg
-////            while (in.isReadable()) { // (5)
-////                System.out.print((char) in.readByte());
-////                System.out.flush();
-////            }
-//            System.out.println(in.toString(CharsetUtil.UTF_8));
-//        } finally {
-//            ReferenceCountUtil.release(msg);// (6)
-//        }
+        ByteBuf in = (ByteBuf) msg;
+        try {
+            // Do something with msg
+//            while (in.isReadable()) { // (5)
+//                System.out.print((char) in.readByte());
+//                System.out.flush();
+//            }
+            System.out.println(in.toString(CharsetUtil.UTF_8));
+        } finally {
+            ReferenceCountUtil.release(msg);// (6)
+        }
 /*----------------------------Writing an Echo Server----------------------------------*/
-            ctx.write(msg); // (7)
-            ctx.flush(); // (8)
+//        ctx.write(msg); // (7)
+//        ctx.flush(); // (8)
+        ByteBuf writeBytes = ctx.alloc().buffer().writeBytes("你好，客户端".getBytes(CharsetUtil.UTF_8));
+        ctx.writeAndFlush(writeBytes);
     }
 
     @Override
