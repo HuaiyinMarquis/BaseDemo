@@ -49,9 +49,9 @@ public class NettyServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() { // (4)配置
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new DelimiterBasedFrameDecoder(Integer.MAX_VALUE,Delimiters.lineDelimiter()[0]));
-                            ch.pipeline().addLast(new StringDecoder());
-                            ch.pipeline().addLast(new MyEncoder());
+//                            ch.pipeline().addLast(new DelimiterBasedFrameDecoder(Integer.MAX_VALUE,Delimiters.lineDelimiter()[0]));
+//                            ch.pipeline().addLast(new StringDecoder());
+//                            ch.pipeline().addLast(new MyEncoder());
                             ch.pipeline().addLast(new DiscardServerHandler());
 //                            ch.pipeline().addLast(new TimeEncoder(),new TimeServerHandler());
                         }

@@ -36,11 +36,13 @@ public class NettyClient {
         b = new Bootstrap(); // (1)
         b.group(workerGroup); // (2)
         b.channel(NioSocketChannel.class); // (3)
-        b.option(ChannelOption.SO_KEEPALIVE, true); // (4)
+        b.option(ChannelOption.SO_KEEPALIVE, false); // (4)
         b.handler(new ChannelInitializer<SocketChannel>() {
             @Override
             public void initChannel(SocketChannel ch) throws Exception {
-
+//                ch.pipeline().addLast(new DelimiterBasedFrameDecoder(Integer.MAX_VALUE,Delimiters.lineDelimiter()[0]));
+//                ch.pipeline().addLast(new StringDecoder());
+//                ch.pipeline().addLast(new MyEncoder());
                 ch.pipeline().addLast(new TimeClientHandler());
 //                    ch.pipeline().addLast(new TimeDecoder(), new TimeClientHandler());
             }
@@ -70,16 +72,12 @@ public class NettyClient {
     }
 
     public static void main(String[] args) {
-
-        Object result = NettyClient.connect("你好，服务器");
-        System.out.println(result);
-        workerGroup.shutdownGracefully();
-//        for (int i=1; i<=100; i++) {
-//            long start = System.currentTimeMillis();
-//            Object result = NettyClient.connect("你好，服务器");
-//            System.out.println(result);
-//            long end = System.currentTimeMillis();
-//            System.out.println("第"+i+"次发送请求耗时：" + (end-start) + "MS");
-//        }
+        for (int i=1; i<=1; i++) {
+            long start = System.currentTimeMillis();
+            Object result = NettyClient.connect("你好，服务器");
+            System.out.println(result);
+            long end = System.currentTimeMillis();
+            System.out.println("第"+i+"次发送请求耗时：" + (end-start) + "MS");
+        }
     }
 }
