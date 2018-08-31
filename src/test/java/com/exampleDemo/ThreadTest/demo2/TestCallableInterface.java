@@ -8,7 +8,7 @@ import java.util.concurrent.FutureTask;
  */
 public class TestCallableInterface {
     public static void main(String[] args) throws Exception {
-        for (int i=0; i<10; i++) {
+        for (int i=0; i<1; i++) {
             MyCallable callable = new MyCallable();
             FutureTask<String> task = new FutureTask<>(callable);
             new Thread(task,"Thread-"+i).start();

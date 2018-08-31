@@ -8,4 +8,9 @@ public class Chinese implements Person{
     public void eat() {
         System.out.println("Chinese eat something...");
     }
+    @Override
+    public void go() {
+        System.out.println("Chinese do something...");
+        eat();
+    }
 }

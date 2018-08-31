@@ -6,6 +6,7 @@ package com.designTest.proxy;
 public class TestCGlibTest {
     public static void main(String[] args) {
         Chinese proxy = (Chinese) new CGLibProxy(new Chinese()).getProxy();
-        proxy.eat();
+//        proxy.eat();
+        proxy.go();
     }
 }

@@ -6,6 +6,7 @@ package com.designTest.proxy;
 public class TestJDKProxy {
     public static void main(String[] args) {
         Person person = new JDKProxy(new Chinese()).getProxy();
-        person.eat();
+//        person.eat();
+        person.go();
     }
 }
