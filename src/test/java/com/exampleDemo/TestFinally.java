@@ -14,7 +14,6 @@ public class TestFinally extends WeakReference<TestFinally> {
 
     public static void main(String[] args) {
         try {
-            "dd".intern();Integer.valueOf(2);
             System.out.println(getStr());
 
         } catch (Exception e) {
@@ -22,11 +21,9 @@ public class TestFinally extends WeakReference<TestFinally> {
         }
     }
 
-    private static String getStr() {
+    private static String getStr() throws Exception {
         try {
             throw new Exception("抛出异常");
-        } catch (Exception e) {
-            throw e;
         } finally {
             return "return finally";
         }
