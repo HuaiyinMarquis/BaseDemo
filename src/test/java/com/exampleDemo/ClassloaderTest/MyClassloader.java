@@ -27,7 +27,7 @@ public class MyClassloader extends ClassLoader {
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
         byte[] data = readClassFileToByteArray(name);
-        return this.defineClass(name,data,0,data.length);
+        return this.defineClass(name,data,0,data.length);//将字节码文件转换为Class对象
     }
 
     /**

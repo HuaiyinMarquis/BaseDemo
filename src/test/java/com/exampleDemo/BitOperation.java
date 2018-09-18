@@ -10,6 +10,7 @@ public class BitOperation {
          * 5    0101
          * 8    1000
          * 7    111
+         * 16   10000
          * 正数的原码和反码和补码都一致；负数的原码是正数的符号位取反；负数的反码是原码的非符号位取反；负数的补码是反码加1。
          * 小技巧
          *　　⑴ 乘法除法：n * 2 等价于 n << 1； n * 5 等价于 n << 2 + 1； n / 2 等价于 n >> 1。
@@ -26,5 +27,6 @@ public class BitOperation {
         System.out.println(~5); //取反
         System.out.println(12 << 2); //左移
         System.out.println(12 >> 2); //右移
+        System.out.println(16 >>> 2);
     }
 }
