@@ -32,9 +32,12 @@ public class JMSListenerReceiver {
 
             while (true){
                 consumer.setMessageListener(messageListener);
+                Thread.sleep(1000);
                 session.commit();
             }
         } catch (JMSException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
             if (connection != null) {

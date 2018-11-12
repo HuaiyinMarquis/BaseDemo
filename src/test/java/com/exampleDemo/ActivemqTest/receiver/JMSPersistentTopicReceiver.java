@@ -12,7 +12,7 @@ public class JMSPersistentTopicReceiver {
         Connection connection = null;
         try {
             connection = connectionFactory.createConnection();
-            connection.setClientID("007");
+            connection.setClientID("009");
             connection.start();
 
             Session session = connection.createSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
