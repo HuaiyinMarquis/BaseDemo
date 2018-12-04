@@ -75,7 +75,7 @@ public class SortDemo {
     }
 
     /**
-     * 并归排序
+     * 归并排序
      * 演示地址：https://mmbiz.qpic.cn/mmbiz_gif/fEsWkVrSk54pze4cQdXwM6ibfGzypdpGhxYKgvQDqXLlUSvfPlNBAmlibd9TORFdcHandRCdXYayiaJyibaJA2Wrmw/640
      * 最佳情况：T(n) = O(n)  最差情况：T(n) = O(nlogn)  平均情况：T(n) = O(nlogn)
      * 稳定、非原地排序（空间复杂度为O(n)）

@@ -48,19 +48,55 @@ public class BSearchDemo {
 
     //二分查找算法变体二：查找最后一个值等于给定值的元素
     public static int variationTwo(int[] array, int value) {
-        if (array.length ==1) return array[0]==value?0:-1;
         int start=0, end=array.length-1;
         int middle = (start+end)/2;
+        while (start < end) {
+            if (array[middle] <= value)
+                start = middle;
+            else if (array[middle] > value)
+                end = middle-1;
+            middle = (start+end)/2 + 1;
+        }
+        return array[start]==value?start:-1;
+    }
 
-        return -1;
+    //二分查找算法变体三：查找第一个大于等于给定值的元素
+    public static int variationThree(int[] array, int value) {
+        int start=0, end=array.length-1;
+        int middle = (start+end);
+        while (start < end) {
+            if (array[middle] >= value)
+                end = middle;
+            else if (array[middle] < value)
+                start = middle+1;
+            middle = (start+end)/2;
+        }
+        return array[start]>=value?middle:-1;
+    }
+
+    //二分查找算法变体四：查找最后一个小于等于给定值的元素
+    public static int variationFour(int[] array, int value) {
+        int start=0, end=array.length-1;
+        int middle = (start+end)/2;
+        while (start < end) {
+            if (array[middle] > value)
+                end = middle-1;
+            else if (array[middle] <= value)
+                start = middle;
+            middle = (start+end)/2 + 1;
+        }
+        return array[start]<=value?start:-1;
     }
 
     public static void main(String[] args) {
 //        int[] array = {0,1,2,3,4,5,6,7,8,9,10};
-        int[] array = {0,1,2,3,4,5,8,8,8,8,10};
+        int[] array = {0,1,2,3,4,5,8,8,8,8,10,11};
 //        int site = recursion(array, 0, array.length-1, 7);
 //        int site = nonRecursion(array,8);
-        int site = variationOne(array,10);
+//        int site = variationOne(array,10);
+//        int site = variationTwo(array,8);
+//        int site = variationThree(array,11);
+        int site = variationFour(array,0);
         System.out.println(site);
     }
 }

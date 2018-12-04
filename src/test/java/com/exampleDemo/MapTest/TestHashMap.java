@@ -3,6 +3,7 @@ package com.exampleDemo.MapTest;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Random;
 
 /**
  * Created by ChenMP on 2018/3/27.
@@ -28,7 +29,6 @@ public class TestHashMap {
         for (int i=0; i<16; i++) {
             map.put(i,i);
         }
-
     }
 }
 
@@ -72,7 +72,7 @@ public class TestHashMap {
 //    }
 //    ++modCount;
 //    if (++size > threshold)
-//        resize();
+//        resize(); 扩容
 //    afterNodeInsertion(evict);
 //    return null;
 //}
