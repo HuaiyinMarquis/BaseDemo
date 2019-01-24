@@ -28,4 +28,10 @@ public class TestString {
         String a = "0123456789";
         System.out.println(a.substring(1,6));
     }
+
+    @Test
+    public void testInteger() {
+        System.out.println(Integer.toBinaryString(7));
+
+    }
 }

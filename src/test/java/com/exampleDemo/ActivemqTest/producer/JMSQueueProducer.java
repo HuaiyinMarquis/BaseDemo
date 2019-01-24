@@ -19,7 +19,7 @@ public class JMSQueueProducer {
 //            ((ActiveMQConnectionFactory) connectionFactory).setOptimizeAcknowledge(true);
             connection = connectionFactory.createConnection();
             connection.start();
-            Session session = connection.createSession(Boolean.FALSE, Session.CLIENT_ACKNOWLEDGE);
+            Session session = connection.createSession(Boolean.TRUE, Session.DUPS_OK_ACKNOWLEDGE);
             Destination destination = session.createQueue("myQueue");
             MessageProducer producer = session.createProducer(destination);
             producer.setDeliveryMode(DeliveryMode.PERSISTENT);//持久化存储

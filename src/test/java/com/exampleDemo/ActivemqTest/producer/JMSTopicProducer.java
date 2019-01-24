@@ -17,7 +17,7 @@ public class JMSTopicProducer {
             MessageProducer producer = session.createProducer(destination);
             producer.setDeliveryMode(DeliveryMode.PERSISTENT);
 
-            TextMessage message = session.createTextMessage("Hello Topic 007");
+            TextMessage message = session.createTextMessage("Hello Topic 009");
             producer.send(message);
 //            session.commit();
             session.close();

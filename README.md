@@ -21,7 +21,7 @@
 
     * exampleDemo
 
-      ​	这里面则包含了[本人博客](http://www.cnblogs.com/HuaiyinMarquis)中的代码示例，里面包含了JDK历代版本特性、垃圾收集器测试、类加载测试、多线程等内容（博客趋待完善...）
+      ​	这里面则包含了[本人博客](http://www.cnblogs.com/HuaiyinMarquis)中的代码示例，里面包含了JDK历代版本特性、垃圾收集器测试、类加载测试、多线程、数据结构与算法等内容（博客待完善...）
 
     * designTest
 
@@ -31,9 +31,6 @@
 
       ​	这里面存放了本人在[lintcode](lintcode.com)上的算法试题解答代码（[账号信息](https://www.lintcode.com/user/AE86/)）
 
-    * sortDemo
-
-      ​	这里面存放了一些排序算法的代码
 
       ​
 
