@@ -54,10 +54,10 @@ public class TestLocalDateTime {
 	//4. TemporalAdjuster : 时间校正器
 	@Test
 	public void test4(){
-	LocalDateTime ldt = LocalDateTime.now();
+	    LocalDateTime ldt = LocalDateTime.now();
 		System.out.println(ldt);
 		
-		LocalDateTime ldt2 = ldt.withDayOfMonth(10);
+		LocalDateTime ldt2 = ldt.withDayOfMonth(20);
 		System.out.println(ldt2);
 		
 		LocalDateTime ldt3 = ldt.with(TemporalAdjusters.next(DayOfWeek.SUNDAY));

@@ -30,7 +30,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         super.addInterceptors(registry);
         registry.addInterceptor(new LoginHandlerInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/index.html","/","/user/login");
+                .excludePathPatterns("/index.html","/","/user/login","/testDateFormat");
     }
 
     @Override

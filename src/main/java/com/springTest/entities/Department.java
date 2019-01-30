@@ -1,5 +1,8 @@
 package com.springTest.entities;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Department {
 
 	private Integer id;

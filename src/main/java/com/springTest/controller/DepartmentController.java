@@ -17,4 +17,12 @@ public class DepartmentController {
         Department department = departmentMapper.select(id);
         return department;
     }
+
+    @GetMapping(value = "/testDateFormat")
+    public Department testDateFormat() {
+        Department department = new Department();
+        department.setId(2);
+        department.setDepartmentName("二货");
+        return department;
+    }
 }
